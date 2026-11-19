@@ -1,0 +1,1526 @@
+
+/* ==========================================================================
+   JISR AL MALIHA PREFABRICATED HOUSES TR. L.L.C - OFFICIAL DESIGN SYSTEM
+   Pixel-Perfect Match to User Reference Architecture & Screenshots
+   ========================================================================== */
+
+:root {
+  --primary-gold: #ffbb00;
+  --primary-gold-dark: #e5a700;
+  --primary-gold-light: #fff9e6;
+  --dark-navy: #0c1420;
+  --dark-card: #141f2e;
+  --dark-border: #1e2e42;
+  --dark-night: #070c14;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --bg-light: #ffffff;
+  --bg-soft: #f8fafc;
+  --border-light: #e2e8f0;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #128c7e;
+  --font-en: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ar: 'Cairo', 'Tajawal', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-gold: 0 6px 20px rgba(255, 187, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-en);
+  color: var(--text-dark);
+  background: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.ar-font {
+  font-family: var(--font-ar);
+}
+
+.gold-text {
+  color: var(--primary-gold) !important;
+}
+
+/* Site Container */
+.nac-c {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* ==========================================================================
+   TOP CONTACT & LICENSE BAR
+   ========================================================================== */
+.nac-topbar {
+  background: var(--dark-night);
+  color: #94a3b8;
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.nac-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.nac-topbar-left, .nac-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.nac-tb-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.nac-tb-link:hover {
+  color: var(--primary-gold);
+}
+.nac-tb-link i {
+  color: var(--primary-gold);
+}
+.nac-tb-badge {
+  background: rgba(255, 187, 0, 0.15);
+  color: var(--primary-gold);
+  border: 1px solid rgba(255, 187, 0, 0.3);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nac-tb-text {
+  color: #94a3b8;
+  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nac-tb-text i {
+  color: var(--primary-gold);
+}
+
+/* ==========================================================================
+   MAIN NAVBAR (STICKY)
+   ========================================================================== */
+.nac-header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 2px solid rgba(255, 187, 0, 0.3);
+}
+.nac-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+.nac-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nac-logo-img {
+  height: 52px;
+  max-width: 280px;
+  display: block;
+}
+.nac-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nac-nav-link {
+  color: var(--dark-navy);
+  text-decoration: none;
+  font-size: 15.5px;
+  font-weight: 700;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+}
+.nac-nav-link:hover, .nac-nav-link.active {
+  color: var(--primary-gold-dark);
+}
+.nac-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-gold);
+  border-radius: 2px;
+}
+.nac-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nac-nav-call {
+  color: var(--dark-navy);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  transition: var(--transition);
+}
+.nac-nav-call:hover {
+  background: #e2e8f0;
+  color: #000;
+}
+.nac-btn-gold {
+  background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-gold);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.nac-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 187, 0, 0.5);
+  color: #000;
+}
+.nac-mob-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-navy);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   PAGE HERO BANNERS (FOR SERVICES, ABOUT, CONTACT)
+   ========================================================================== */
+.page-banner-section {
+  position: relative;
+  background-size: cover !important;
+  background-position: center center !important;
+  color: #ffffff;
+  padding: 85px 0 95px;
+  text-align: center;
+  border-bottom: 3px solid var(--primary-gold);
+}
+.page-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12, 20, 32, 0.78) 0%, rgba(12, 20, 32, 0.65) 50%, rgba(20, 31, 46, 0.75) 100%);
+  z-index: 1;
+}
+.page-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto;
+}
+.page-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 187, 0, 0.18);
+  color: var(--primary-gold);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-banner-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+}
+.page-banner-sub {
+  font-size: 17.5px;
+  color: #f1f5f9;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.banner-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.banner-breadcrumb a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.banner-breadcrumb a:hover {
+  color: var(--primary-gold);
+}
+.banner-breadcrumb span {
+  color: var(--primary-gold);
+}
+
+/* ==========================================================================
+   HOME PAGE HERO SECTION
+   ========================================================================== */
+.nac-home-hero {
+  position: relative;
+  background-size: cover !important;
+  background-position: center center !important;
+  color: #ffffff;
+  padding: 85px 0 95px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--primary-gold);
+}
+.nac-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12, 20, 32, 0.82) 0%, rgba(12, 20, 32, 0.70) 50%, rgba(20, 31, 46, 0.60) 100%);
+  z-index: 1;
+}
+.nac-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+.nac-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.nac-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 187, 0, 0.18);
+  color: var(--primary-gold);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+.nac-hero-h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+}
+.nac-hero-ar {
+  font-size: 16px;
+  font-family: var(--font-ar);
+  color: var(--primary-gold);
+  font-weight: 700;
+}
+.nac-hero-desc {
+  font-size: 16px;
+  color: #e2e8f0;
+  line-height: 1.65;
+  margin: 0;
+}
+.nac-hero-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.nac-hero-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: #f1f5f9;
+}
+.nac-hero-bullets li i {
+  color: var(--primary-gold);
+}
+.nac-hero-contacts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+.nac-hero-btn-wa {
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}
+.nac-hero-btn-wa:hover {
+  background: #128c7e;
+  transform: translateY(-2px);
+}
+.nac-hero-btn-call {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+.nac-hero-btn-call:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Hero Right: Request Instant Quotation Form Card */
+.nac-hero-card {
+  background: rgba(20, 31, 46, 0.95);
+  backdrop-filter: blur(12px);
+  border: 2px solid var(--primary-gold);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.nac-hero-card-head {
+  background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+  color: #0f172a;
+  padding: 18px 24px;
+}
+.nac-hero-card-head h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nac-hero-card-head p {
+  font-size: 12.5px;
+  font-weight: 600;
+  opacity: 0.9;
+  margin: 4px 0 0;
+}
+.nac-hero-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.nac-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.nac-form-lbl {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.nac-form-ctrl {
+  width: 100%;
+  background: #0c1420;
+  border: 1px solid #1e2e42;
+  border-radius: 8px;
+  padding: 11px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+  font-family: inherit;
+}
+.nac-form-ctrl:focus {
+  border-color: var(--primary-gold);
+  box-shadow: 0 0 0 3px rgba(255, 187, 0, 0.2);
+}
+.nac-form-btn-submit {
+  width: 100%;
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14.5px;
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  transition: var(--transition);
+  margin-top: 4px;
+  font-family: inherit;
+}
+.nac-form-btn-submit:hover {
+  background: #128c7e;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SECTIONS COMMON
+   ========================================================================== */
+.nac-sec {
+  padding: 80px 0;
+}
+.nac-sec-light {
+  background: #ffffff;
+}
+.nac-sec-soft {
+  background: #f8fafc;
+}
+.nac-sec-dark {
+  background: var(--dark-navy);
+  color: #ffffff;
+}
+.nac-head {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 50px;
+}
+.nac-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 187, 0, 0.12);
+  color: var(--primary-gold-dark);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.nac-h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--dark-navy);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.nac-sec-dark .nac-h2 {
+  color: #ffffff;
+}
+.nac-sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.nac-sec-dark .nac-sub {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   STATS BAR (DARK LUXURY)
+   ========================================================================== */
+.nac-stats-bar {
+  background: var(--dark-navy);
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+  padding: 45px 0;
+}
+.nac-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.nac-stat-item h3 {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--primary-gold);
+  margin-bottom: 4px;
+}
+.nac-stat-item p {
+  font-size: 14px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SERVICE CARDS (STRICT 16:9 IMAGE RATIO AS REQUESTED BY USER)
+   ========================================================================== */
+.nac-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.nac-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+.nac-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+  border-color: var(--primary-gold);
+}
+
+/* STRICT 16:9 RATIO ENFORCEMENT */
+.nac-card-imgwrap {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: 220px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #0c1420 !important;
+}
+.nac-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+.nac-card:hover .nac-card-img {
+  transform: scale(1.06) !important;
+}
+
+.nac-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(12, 20, 32, 0.9);
+  color: var(--primary-gold);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+.nac-card-ico-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--primary-gold);
+  color: #0c1420;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 2;
+  font-size: 16px;
+}
+.nac-card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.nac-card-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 8px;
+  line-height: 1.35;
+  transition: var(--transition);
+}
+.nac-card:hover .nac-card-title {
+  color: var(--primary-gold-dark);
+}
+.nac-card-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.nac-card-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.nac-card-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+}
+.nac-card-bullets li i {
+  color: var(--primary-gold-dark);
+}
+.nac-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  gap: 8px;
+}
+.nac-card-price {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--primary-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.nac-card-wa-btn {
+  background: #25d366;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+.nac-card-wa-btn:hover {
+  background: #128c7e;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2-COLUMN STORY & FEATURES
+   ========================================================================== */
+.nac-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.nac-story-imgbox {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  aspect-ratio: 16 / 9;
+}
+.nac-story-imgbox img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.nac-story-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--dark-navy);
+  color: #ffffff;
+  border: 2px solid var(--primary-gold);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nac-story-badge strong {
+  font-size: 24px;
+  color: var(--primary-gold);
+  line-height: 1;
+}
+
+/* Feature 4-Card Grid */
+.nac-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.nac-feat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.nac-feat-card:hover {
+  border-color: var(--primary-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.nac-feat-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 187, 0, 0.15);
+  color: var(--primary-gold-dark);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.nac-feat-card h4 {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 6px;
+}
+.nac-feat-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   TEAM CARDS
+   ========================================================================== */
+.nac-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.nac-team-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  padding-bottom: 18px;
+  transition: var(--transition);
+}
+.nac-team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-gold);
+}
+.nac-team-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.nac-team-name {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-top: 14px;
+}
+.nac-team-role {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.nac-team-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.nac-team-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: var(--dark-navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.nac-team-btn:hover {
+  background: var(--primary-gold);
+  color: #000;
+}
+
+/* ==========================================================================
+   PROCESS 4 STEPS
+   ========================================================================== */
+.nac-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.nac-step-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 26px 20px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.nac-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-gold);
+}
+.nac-step-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--primary-gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.nac-step-card h4 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 8px;
+}
+.nac-step-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CONTACT PAGE DETAILS & 2-COLUMN FORM
+   ========================================================================== */
+.nac-contact-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 45px;
+}
+.nac-c-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: var(--transition);
+}
+.nac-c-card:hover {
+  border-color: var(--primary-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.nac-c-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 187, 0, 0.15);
+  color: var(--primary-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 16px;
+}
+.nac-c-card h4 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 8px;
+}
+.nac-c-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.nac-c-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-gold-dark);
+  font-weight: 800;
+  font-size: 13.5px;
+  text-decoration: none;
+}
+.nac-c-link-btn:hover {
+  color: #000;
+}
+
+.nac-contact-form-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 35px;
+}
+.nac-form-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: var(--shadow-md);
+}
+.nac-form-box h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 6px;
+}
+.nac-form-box p {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.nac-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.nac-guarantee-box {
+  background: var(--dark-navy);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  border: 2px solid var(--primary-gold);
+}
+.nac-guarantee-box h4 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--primary-gold);
+  margin-bottom: 18px;
+}
+.nac-g-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.nac-g-item i {
+  color: var(--primary-gold);
+  font-size: 18px;
+  margin-top: 3px;
+}
+.nac-g-item strong {
+  display: block;
+  font-size: 14.5px;
+  color: #ffffff;
+}
+.nac-g-item span {
+  font-size: 12.5px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   FAQ ACCORDION
+   ========================================================================== */
+.nac-faq-list {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.nac-faq-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.nac-faq-btn {
+  width: 100%;
+  padding: 18px 22px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--dark-navy);
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+}
+.nac-faq-btn i {
+  color: var(--primary-gold-dark);
+  transition: transform 0.3s ease;
+}
+.nac-faq-item.active .nac-faq-btn i {
+  transform: rotate(180deg);
+}
+.nac-faq-ans {
+  display: none;
+  padding: 0 22px 18px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.nac-faq-item.active .nac-faq-ans {
+  display: block;
+}
+
+/* ==========================================================================
+   YELLOW CONTACT RIBBON (TOP OF FOOTER)
+   ========================================================================== */
+.nac-yellow-ribbon {
+  background: #ffbb00;
+  color: #0f172a;
+  padding: 24px 0;
+  box-shadow: 0 4px 15px rgba(255, 187, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+.nac-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+.nac-ribbon-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nac-ribbon-icon {
+  width: 44px;
+  height: 44px;
+  background: #0f172a;
+  color: #ffbb00;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+.nac-ribbon-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #0f172a;
+  opacity: 0.85;
+}
+.nac-ribbon-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.nac-ribbon-val a {
+  color: #0f172a;
+  text-decoration: none;
+}
+.nac-ribbon-val a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   MAIN 4-COLUMN DARK FOOTER (EXACT MATCH TO REFERENCE SCREENSHOT)
+   ========================================================================== */
+.nac-footer {
+  background: #0c1420;
+  color: #cbd5e1;
+  padding: 70px 0 0;
+  position: relative;
+}
+.nac-ft-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr 1.15fr 1.25fr;
+  gap: 45px;
+  padding-bottom: 55px;
+}
+
+/* Col 1 */
+.nac-ft-logo-wrap {
+  margin-bottom: 18px;
+}
+.nac-ft-logo-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.nac-ft-logo-img {
+  height: 42px;
+  max-width: 210px;
+  display: block;
+}
+.nac-ft-tagline {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.nac-ft-loc-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.nac-ft-loc-icon {
+  width: 44px;
+  height: 44px;
+  background: #ffbb00;
+  color: #0c1420;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 187, 0, 0.3);
+}
+.nac-ft-loc-lbl {
+  display: block;
+  color: #ffbb00;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.nac-ft-loc-val {
+  display: block;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.nac-ft-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nac-ft-soc-btn {
+  width: 40px;
+  height: 40px;
+  background: #ffbb00;
+  color: #0c1420;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.nac-ft-soc-btn:hover {
+  background: #ffffff;
+  color: #0c1420;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 187, 0, 0.4);
+}
+
+/* Col 2 & 3 */
+.nac-ft-h4 {
+  color: #ffbb00;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 22px;
+  letter-spacing: 0.2px;
+}
+.nac-ft-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.nac-ft-link-item a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+.nac-ft-link-item a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+.nac-ft-arrow-icon {
+  color: #ffbb00;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Col 4 */
+.nac-ft-news-p {
+  color: #94a3b8;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.nac-ft-news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nac-ft-news-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+.nac-ft-news-btn {
+  background: #ffbb00;
+  color: #0c1420;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(255, 187, 0, 0.35);
+  transition: var(--transition);
+  font-family: inherit;
+}
+.nac-ft-news-btn:hover {
+  background: #e5a700;
+  transform: translateY(-2px);
+}
+
+/* Bottom Copyright Bar */
+.nac-ft-bottom {
+  background: #070c14;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.nac-ft-copy {
+  font-size: 13px;
+  color: #94a3b8;
+}
+.nac-ft-copy strong {
+  color: #ffffff;
+}
+.nac-ft-totop {
+  width: 36px;
+  height: 36px;
+  background: #141f2e;
+  color: #ffffff;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.nac-ft-totop:hover {
+  background: #ffbb00;
+  color: #000000;
+}
+
+/* ==========================================================================
+   3 FLOATING ACTION BUTTONS ON SIDE (CALL, WHATSAPP 1, WHATSAPP 2)
+   ========================================================================== */
+.side-floating-actions {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.side-float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.side-float-btn:hover {
+  transform: scale(1.12);
+}
+.side-float-call {
+  background: #ffbb00;
+  color: #0c1420;
+}
+.side-float-wa1 {
+  background: #25d366;
+  color: #ffffff;
+}
+.side-float-wa2 {
+  background: #128c7e;
+  color: #ffffff;
+}
+.side-float-tip {
+  position: absolute;
+  right: 66px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0c1420;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+}
+.side-float-btn:hover .side-float-tip {
+  opacity: 1;
+  visibility: visible;
+  right: 60px;
+}
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #25d366;
+  opacity: 0.5;
+  animation: pulseAnim 2s infinite cubic-bezier(0, 0, 0.2, 1);
+  z-index: -1;
+}
+@keyframes pulseAnim {
+  75%, 100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nac-hero-grid, .nac-story-grid, .nac-contact-form-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .nac-cards-grid, .nac-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nac-team-grid, .nac-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nac-ft-grid, .nac-ribbon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nac-nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .nac-nav-menu.active {
+    display: flex;
+  }
+  .nac-mob-toggle {
+    display: block;
+  }
+  .nac-nav-actions {
+    display: none;
+  }
+  .nac-cards-grid, .nac-stats-grid, .nac-team-grid, .nac-process-grid, .nac-contact-cards-3, .nac-features-grid, .nac-form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .nac-ft-grid, .nac-ribbon-grid {
+    grid-template-columns: 1fr;
+  }
+  .nac-ft-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

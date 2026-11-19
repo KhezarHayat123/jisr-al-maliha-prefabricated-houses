@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal & Security Gate | Jisr Al Maliha</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-body">
+
+    <!-- 1. Security Gate: Login Modal -->
+    <div class="admin-login-wrapper" id="loginWrapper">
+        <div class="admin-login-card">
+            <div class="admin-login-logo">
+                <img src="assets/images/logo-white.svg" alt="Jisr Al Maliha">
+            </div>
+            <h2 class="admin-login-title">Client Admin Portal</h2>
+            <p class="admin-login-sub">Enter security password to access website settings & customer leads.</p>
+
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="admin-input-group">
+                    <label class="admin-input-label">Security Password</label>
+                    <div style="position:relative;">
+                        <input type="password" id="adminPassword" class="admin-input" placeholder="Enter password" required>
+                        <button type="button" onclick="togglePassVis()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#94a3b8; cursor:pointer;">
+                            <i class="fa-solid fa-eye" id="passEye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="admin-btn-primary">
+                    <i class="fa-solid fa-lock-open"></i> Unlock Admin Panel
+                </button>
+                <div class="admin-error-msg" id="loginError">
+                    <i class="fa-solid fa-circle-exclamation"></i> Invalid password. Please try again.
+                </div>
+            </form>
+
+            <div style="margin-top:24px; font-size:12px; color:#64748b;">
+                Default Password: <code style="color:var(--primary-gold); background:#0f172a; padding:2px 6px; border-radius:4px;">jisr2026</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Authenticated Admin Dashboard -->
+    <div class="admin-dashboard-wrapper" id="dashboardWrapper">
+        
+        <!-- Top Nav -->
+        <nav class="admin-top-nav">
+            <div class="admin-nav-brand">
+                <img src="assets/images/logo-white.svg" alt="Jisr Al Maliha">
+                <span class="admin-badge-portal">Admin Portal</span>
+            </div>
+            <div class="admin-top-actions">
+                <a href="index.html" target="_blank" class="btn-admin-site">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Website
+                </a>
+                <button onclick="handleAdminLogout()" class="btn-admin-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            
+            <!-- Quick Stats -->
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon"><i class="fa-solid fa-inbox"></i></div>
+                    <div>
+                        <div class="admin-stat-num" id="statLeadsCount">0</div>
+                        <div class="admin-stat-label">Inquiries Received</div>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <div class="admin-stat-num">3 Active</div>
+                        <div class="admin-stat-label">Phone & WhatsApp Lines</div>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div>
+                        <div class="admin-stat-num">SEDD #922593</div>
+                        <div class="admin-stat-label">Trade License Status: Valid</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" onclick="switchAdminTab('tab-contacts', event)">
+                    <i class="fa-solid fa-address-book"></i> Contact Numbers & Email
+                </button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('tab-social', event)">
+                    <i class="fa-solid fa-share-nodes"></i> Social Media Links
+                </button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('tab-leads', event)">
+                    <i class="fa-solid fa-users"></i> Customer Inquiries Inbox
+                </button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('tab-security', event)">
+                    <i class="fa-solid fa-key"></i> Change Password
+                </button>
+            </div>
+
+            <!-- TAB 1: Contact Details -->
+            <div class="admin-tab-pane active" id="tab-contacts">
+                <h3 class="admin-section-title">Contact Numbers & Email Settings</h3>
+                <p class="admin-section-sub">Any changes saved here will instantly update the numbers across the entire website.</p>
+
+                <form onsubmit="saveContactSettings(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-input-group">
+                            <label class="admin-input-label">Direct Calling Phone</label>
+                            <input type="text" id="cfgPhone" class="admin-input" required>
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label">WhatsApp Line 1 (Primary)</label>
+                            <input type="text" id="cfgWhatsapp1" class="admin-input" required>
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label">WhatsApp Line 2 (Secondary)</label>
+                            <input type="text" id="cfgWhatsapp2" class="admin-input" required>
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label">Official Email Address</label>
+                            <input type="email" id="cfgEmail" class="admin-input" required>
+                        </div>
+                    </div>
+
+                    <div class="admin-input-group">
+                        <label class="admin-input-label">Office & Yard Address</label>
+                        <input type="text" id="cfgAddress" class="admin-input" required>
+                    </div>
+
+                    <button type="submit" class="admin-btn-primary" style="max-width:240px;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Contact Settings
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 2: Social Media Links -->
+            <div class="admin-tab-pane" id="tab-social">
+                <h3 class="admin-section-title">Social Media & Marketing Links</h3>
+                <p class="admin-section-sub">Paste your company social media page URLs below to link them with the website icons.</p>
+
+                <form onsubmit="saveSocialSettings(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-facebook"></i> Facebook Page URL</label>
+                            <input type="url" id="cfgFacebook" class="admin-input" placeholder="https://facebook.com/...">
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-instagram"></i> Instagram Profile URL</label>
+                            <input type="url" id="cfgInstagram" class="admin-input" placeholder="https://instagram.com/...">
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-tiktok"></i> TikTok Profile URL</label>
+                            <input type="url" id="cfgTiktok" class="admin-input" placeholder="https://tiktok.com/@...">
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-linkedin"></i> LinkedIn Company URL</label>
+                            <input type="url" id="cfgLinkedin" class="admin-input" placeholder="https://linkedin.com/company/...">
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-youtube"></i> YouTube Channel URL</label>
+                            <input type="url" id="cfgYoutube" class="admin-input" placeholder="https://youtube.com/@...">
+                        </div>
+                        <div class="admin-input-group">
+                            <label class="admin-input-label"><i class="fa-brands fa-x-twitter"></i> X / Twitter URL</label>
+                            <input type="url" id="cfgTwitter" class="admin-input" placeholder="https://x.com/...">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="admin-btn-primary" style="max-width:240px;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Social Media Links
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 3: Leads & Inquiries Inbox -->
+            <div class="admin-tab-pane" id="tab-leads">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:15px;">
+                    <div>
+                        <h3 class="admin-section-title" style="margin-bottom:4px;">Customer Inquiries Inbox</h3>
+                        <p class="admin-section-sub" style="margin-bottom:0;">Live log of quotes and messages submitted from website forms.</p>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button onclick="exportLeadsCSV()" class="btn-admin-site">
+                            <i class="fa-solid fa-file-excel"></i> Export CSV
+                        </button>
+                        <button onclick="clearAllLeads()" class="btn-admin-logout">
+                            <i class="fa-solid fa-trash-can"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+
+                <div style="overflow-x:auto;">
+                    <table class="admin-leads-table">
+                        <thead>
+                            <tr>
+                                <th>Date / Time</th>
+                                <th>Type</th>
+                                <th>Client Name</th>
+                                <th>Phone Number</th>
+                                <th>Unit Required</th>
+                                <th>Emirate</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody">
+                            <tr><td colspan="6" style="text-align:center; color:#94a3b8;">No inquiries yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 4: Security Settings -->
+            <div class="admin-tab-pane" id="tab-security">
+                <h3 class="admin-section-title">Change Admin Security Password</h3>
+                <p class="admin-section-sub">Update the password required to access this control panel.</p>
+
+                <form onsubmit="changeAdminPassword(event)" style="max-width:400px;">
+                    <div class="admin-input-group">
+                        <label class="admin-input-label">New Security Password</label>
+                        <input type="password" id="newPass" class="admin-input" required>
+                    </div>
+                    <div class="admin-input-group">
+                        <label class="admin-input-label">Confirm New Password</label>
+                        <input type="password" id="confirmPass" class="admin-input" required>
+                    </div>
+                    <button type="submit" class="admin-btn-primary">
+                        <i class="fa-solid fa-key"></i> Update Security Password
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="admin-toast" id="adminToast">
+        <i class="fa-solid fa-check-circle"></i> Settings saved successfully!
+    </div>
+
+    <script src="assets/js/site-config.js"></script>
+    <script>
+        const DEFAULT_PASS = 'jisr2026';
+
+        function checkAuth() {
+            if (sessionStorage.getItem('jisr_admin_logged') === 'true') {
+                document.getElementById('loginWrapper').style.display = 'none';
+                document.getElementById('dashboardWrapper').style.display = 'block';
+                loadAdminData();
+            }
+        }
+
+        function togglePassVis() {
+            const pass = document.getElementById('adminPassword');
+            const eye = document.getElementById('passEye');
+            if (pass.type === 'password') {
+                pass.type = 'text';
+                eye.classList.remove('fa-eye');
+                eye.classList.add('fa-eye-slash');
+            } else {
+                pass.type = 'password';
+                eye.classList.remove('fa-eye-slash');
+                eye.classList.add('fa-eye');
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const inputPass = document.getElementById('adminPassword').value;
+            const currentPass = localStorage.getItem('jisr_admin_pass') || DEFAULT_PASS;
+
+            if (inputPass === currentPass) {
+                sessionStorage.setItem('jisr_admin_logged', 'true');
+                document.getElementById('loginWrapper').style.display = 'none';
+                document.getElementById('dashboardWrapper').style.display = 'block';
+                loadAdminData();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        function handleAdminLogout() {
+            sessionStorage.removeItem('jisr_admin_logged');
+            window.location.reload();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('adminToast');
+            toast.innerHTML = '<i class="fa-solid fa-check-circle"></i> ' + msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        function switchAdminTab(tabId, event) {
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.admin-tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function loadAdminData() {
+            const cfg = getSiteConfig();
+            document.getElementById('cfgPhone').value = cfg.phone || '';
+            document.getElementById('cfgWhatsapp1').value = cfg.whatsapp1 || '';
+            document.getElementById('cfgWhatsapp2').value = cfg.whatsapp2 || '';
+            document.getElementById('cfgEmail').value = cfg.email || '';
+            document.getElementById('cfgAddress').value = cfg.address || '';
+
+            document.getElementById('cfgFacebook').value = cfg.socialFacebook || '';
+            document.getElementById('cfgInstagram').value = cfg.socialInstagram || '';
+            document.getElementById('cfgTiktok').value = cfg.socialTiktok || '';
+            document.getElementById('cfgLinkedin').value = cfg.socialLinkedin || '';
+            document.getElementById('cfgYoutube').value = cfg.socialYoutube || '';
+            document.getElementById('cfgTwitter').value = cfg.socialTwitter || '';
+
+            renderLeads();
+        }
+
+        function saveContactSettings(e) {
+            e.preventDefault();
+            const cfg = getSiteConfig();
+            cfg.phone = document.getElementById('cfgPhone').value;
+            cfg.phoneTel = cfg.phone.replace(/[^0-9+]/g, '');
+            cfg.whatsapp1 = document.getElementById('cfgWhatsapp1').value;
+            cfg.whatsapp1Raw = cfg.whatsapp1.replace(/[^0-9]/g, '');
+            cfg.whatsapp2 = document.getElementById('cfgWhatsapp2').value;
+            cfg.whatsapp2Raw = cfg.whatsapp2.replace(/[^0-9]/g, '');
+            cfg.email = document.getElementById('cfgEmail').value;
+            cfg.address = document.getElementById('cfgAddress').value;
+
+            localStorage.setItem('jisr_site_config', JSON.stringify(cfg));
+            showToast('Contact settings updated across website!');
+        }
+
+        function saveSocialSettings(e) {
+            e.preventDefault();
+            const cfg = getSiteConfig();
+            cfg.socialFacebook = document.getElementById('cfgFacebook').value;
+            cfg.socialInstagram = document.getElementById('cfgInstagram').value;
+            cfg.socialTiktok = document.getElementById('cfgTiktok').value;
+            cfg.socialLinkedin = document.getElementById('cfgLinkedin').value;
+            cfg.socialYoutube = document.getElementById('cfgYoutube').value;
+            cfg.socialTwitter = document.getElementById('cfgTwitter').value;
+
+            localStorage.setItem('jisr_site_config', JSON.stringify(cfg));
+            showToast('Social media links saved!');
+        }
+
+        function changeAdminPassword(e) {
+            e.preventDefault();
+            const n1 = document.getElementById('newPass').value;
+            const n2 = document.getElementById('confirmPass').value;
+            if (n1 !== n2) {
+                alert('Passwords do not match!');
+                return;
+            }
+            localStorage.setItem('jisr_admin_pass', n1);
+            showToast('Security password changed successfully!');
+            document.getElementById('newPass').value = '';
+            document.getElementById('confirmPass').value = '';
+        }
+
+        function renderLeads() {
+            const leads = JSON.parse(localStorage.getItem('jisr_leads') || '[]');
+            document.getElementById('statLeadsCount').textContent = leads.length;
+
+            const tbody = document.getElementById('leadsTableBody');
+            if (leads.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:#94a3b8;">No customer inquiries yet.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = leads.map(l => `
+                <tr>
+                    <td style="color:#94a3b8; font-size:12px;">${l.date || '-'}</td>
+                    <td><span style="background:rgba(255,187,0,0.15); color:var(--primary-gold); padding:2px 6px; border-radius:4px; font-size:11px;">${l.type || 'Quote'}</span></td>
+                    <td><strong>${l.clientName || 'Visitor'}</strong> ${l.company ? '<br><small style="color:#94a3b8;">' + l.company + '</small>' : ''}</td>
+                    <td><a href="tel:${l.contactNumber}" style="color:#38bdf8; text-decoration:none;">${l.contactNumber || '-'}</a></td>
+                    <td>${l.unitType || l.cabinType || '-'}</td>
+                    <td>${l.deliveryLocation || '-'}</td>
+                </tr>
+            `).join('');
+        }
+
+        function clearAllLeads() {
+            if (confirm('Are you sure you want to clear all inquiries?')) {
+                localStorage.removeItem('jisr_leads');
+                renderLeads();
+                showToast('Inquiries cleared.');
+            }
+        }
+
+        function exportLeadsCSV() {
+            const leads = JSON.parse(localStorage.getItem('jisr_leads') || '[]');
+            if (leads.length === 0) {
+                alert('No leads to export.');
+                return;
+            }
+            let csv = 'Date,Type,Name,Company,Phone,Unit,Location\n';
+            leads.forEach(l => {
+                csv += `"${l.date || ''}","${l.type || ''}","${l.clientName || ''}","${l.company || ''}","${l.contactNumber || ''}","${l.unitType || l.cabinType || ''}","${l.deliveryLocation || ''}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'jisr-al-maliha-leads.csv';
+            a.click();
+        }
+
+        window.onload = checkAuth;
+    </script>
+</body>
+</html>
