@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jisr Al Maliha - Gmail Auto-Reply & AI Setup Guide</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0b1526; color: #e2e8f0; margin: 0; padding: 40px 20px; line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; background: #0f1c33; border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 16px; padding: 36px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    h1 { color: #f59e0b; margin-top: 0; font-size: 28px; }
+    h2 { color: #fbbf24; border-bottom: 1px solid rgba(245, 158, 11, 0.25); padding-bottom: 8px; margin-top: 30px; }
+    .badge { background: #f59e0b; color: #0b1526; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 13px; }
+    .box { background: #080e1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 18px; margin: 16px 0; }
+    .copy-btn { background: #f59e0b; color: #0b1526; font-weight: 700; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; float: right; }
+    .copy-btn:hover { background: #fbbf24; }
+    pre { white-space: pre-wrap; font-family: inherit; font-size: 14px; color: #cbd5e1; margin-top: 10px; }
+    ol { padding-left: 22px; }
+    li { margin-bottom: 10px; }
+    a { color: #f59e0b; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fa-solid fa-envelope"></i> Jisr Al Maliha (jisralmaliha@gmail.com)</h1>
+    <p>This guide explains how to activate <strong>Instant Auto-Reply</strong> for any incoming email to <code>jisralmaliha@gmail.com</code> so that clients receive immediate confirmation, company details, catalog link, and emergency WhatsApp contacts 24/7.</p>
+
+    <h2>Step 1: Official Gmail Automatic Responder (Takes 30 Seconds)</h2>
+    <ol>
+      <li>Log into your Gmail account (<strong>jisralmaliha@gmail.com</strong>).</li>
+      <li>At the top right, click the <strong>Settings Gear icon ⚙️</strong> &rarr; Click <strong>"See all settings"</strong>.</li>
+      <li>Scroll down to the <strong>"Vacation responder"</strong> (or "Auto-reply") section.</li>
+      <li>Select <strong>"Vacation responder on"</strong>.</li>
+      <li>In the <strong>Subject</strong> box, type:
+        <div class="box">
+          <code>Jisr Al Maliha Prefabricated Houses TR. L.L.C - Instant Inquiry Confirmation [SEDD #922593]</code>
+        </div>
+      </li>
+      <li>In the <strong>Message</strong> box, copy and paste the official bilingual response below:</li>
+    </ol>
+
+    <div class="box">
+      <button class="copy-btn" onclick="copyTemplate()">Copy Template</button>
+      <div style="clear:both;"></div>
+      <pre id="templateText">السلام عليكم ورحمة الله وبركاته / Dear Valued Client,
+
+Thank you for contacting JISR AL MALIHA PREFABRICATED HOUSES TR. L.L.C (جسر المليحة لتجارة البيوت الجاهزة ذ.م.م).
+
+We have received your email inquiry. Our engineering design & estimation desk is reviewing your specifications and will provide a formal quotation shortly.
+
+---
+🏭 QUICK SPECIFICATIONS & FACTORY HIGHLIGHTS:
+• Sharjah SEDD Trade License: #922593
+• Delivery & Installation: Supplying all 7 UAE Emirates (Sharjah, Dubai, Abu Dhabi, Ajman, RAK, Fujairah, UAQ)
+• Core Solutions: Heavy-Duty Porta Cabins, Luxury Prefab Washrooms, 2-Storey Modular Accommodation, Security Guard Booths, Commercial Kitchens & Sandwich Panel Storage Units.
+
+---
+⚡ NEED INSTANT FACTORY PRICING OR URGENT CRANE DELIVERY?
+If your requirement is urgent, please connect directly with our senior engineering team via WhatsApp or Direct Call:
+
+📞 Direct Factory Call: +971 56 938 6872
+💬 WhatsApp Hotline 1: +971 54 523 0105
+💬 WhatsApp Hotline 2: +971 52 863 4547
+🌐 Live Website: https://jisr-al-maliha-prefabricated-houses.vercel.app
+
+Factory Address: Maliha Road, Industrial Area, Sharjah, United Arab Emirates.
+
+Best Regards,
+Engineering Estimation & Technical Sales Team
+JISR AL MALIHA PREFABRICATED HOUSES TR. L.L.C</pre>
+    </div>
+
+    <ol start="7">
+      <li>Click <strong>"Save Changes"</strong> at the bottom of the page.</li>
+    </ol>
+
+    <h2>Step 2: On-Site 24/7 AI Live Chat Assistant</h2>
+    <p>Your website now features an interactive <strong>AI Live Chat Assistant</strong> situated at the <strong>bottom-left corner</strong> of every page. When visitors land on your website:</p>
+    <ul>
+      <li>An animated greeting bubble automatically invites them to chat.</li>
+      <li>The AI bot answers pricing, sizing, delivery, and technical queries immediately.</li>
+      <li>All captured leads are automatically logged and can be exported to CSV in your Admin Panel (<a href="admin.html">admin.html</a>).</li>
+      <li>Visitors can also click <strong>"Email jisralmaliha@gmail.com"</strong> directly from the chat drawer.</li>
+    </ul>
+  </div>
+
+  <script>
+    function copyTemplate() {
+      const text = document.getElementById('templateText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Auto-Reply Template copied to clipboard! Paste it into Gmail Vacation Responder.');
+      });
+    }
+  </script>
+</body>
+</html>
