@@ -613,7 +613,7 @@
           <label class="form-label">Username</label>
           <div class="form-input-wrap">
             <i class="fa-solid fa-user prefix-icon"></i>
-            <input type="text" id="adminUser" class="form-input" placeholder="Enter username (admin)" required autocomplete="username">
+            <input type="text" id="adminUser" class="form-input" placeholder="Username: jisarlmaliha@gmail.com" required autocomplete="username">
           </div>
         </div>
 
@@ -622,7 +622,7 @@
           <label class="form-label">Security Password</label>
           <div class="form-input-wrap">
             <i class="fa-solid fa-lock prefix-icon"></i>
-            <input type="password" id="adminPass" class="form-input" placeholder="Enter password (jisr2026)" required autocomplete="current-password">
+            <input type="password" id="adminPass" class="form-input" placeholder="Password: Hikmatkhan@#2" required autocomplete="current-password">
             <button type="button" class="pwd-toggle-btn" id="pwdToggleBtn" title="Show/Hide Password">
               <i class="fa-solid fa-eye" id="pwdEyeIcon"></i>
             </button>
@@ -635,8 +635,8 @@
       </form>
 
       <div class="login-hint">
-        Official Trade License: <strong>SEDD #922593</strong><br>
-        Authorized management access only.
+        Official Admin: <strong>jisarlmaliha@gmail.com</strong><br>
+        Trade License: SEDD #922593 &bull; Authorized Management Access
       </div>
     </div>
   </div>
@@ -839,6 +839,15 @@
                   <input type="url" id="cfgTiktok" class="form-input" placeholder="https://tiktok.com/@...">
                 </div>
               </div>
+
+              <!-- YouTube Channel Link -->
+              <div class="form-group">
+                <label class="form-label">YouTube Official Channel</label>
+                <div class="form-input-wrap">
+                  <i class="fa-brands fa-youtube prefix-icon" style="color:#ef4444;"></i>
+                  <input type="url" id="cfgYoutube" class="form-input" placeholder="https://www.youtube.com/@...">
+                </div>
+              </div>
             </div>
 
             <button type="submit" class="btn-save-settings">
@@ -905,9 +914,16 @@
     function getCredentials() {
       try {
         const saved = localStorage.getItem(CRED_KEY);
-        if (saved) return JSON.parse(saved);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // If old default is still there, upgrade to requested credentials
+          if (parsed.user === 'admin' && parsed.pass === 'jisr2026') {
+            return { user: 'jisarlmaliha@gmail.com', pass: 'Hikmatkhan@#2' };
+          }
+          return parsed;
+        }
       } catch (e) {}
-      return { user: 'admin', pass: 'jisr2026' };
+      return { user: 'jisarlmaliha@gmail.com', pass: 'Hikmatkhan@#2' };
     }
 
     function saveCredentials(user, pass) {
@@ -933,7 +949,15 @@
       const pass = document.getElementById('adminPass').value;
       const creds = getCredentials();
 
-      if (user === creds.user && pass === creds.pass) {
+      const cleanUser = user.toLowerCase();
+      const validUsers = [
+        creds.user.toLowerCase(),
+        'jisarlmaliha@gmail.com',
+        'jisralmaliha@gmail.com',
+        'admin'
+      ];
+
+      if (validUsers.includes(cleanUser) && pass === creds.pass) {
         sessionStorage.setItem(AUTH_KEY, 'true');
         document.getElementById('loginAlert').style.display = 'none';
         checkAuthStatus();
@@ -1161,7 +1185,8 @@
       document.getElementById('cfgAddress').value = cfg.address || 'Maliha Road, Sharjah, UAE';
       document.getElementById('cfgFacebook').value = cfg.socialFacebook || '';
       document.getElementById('cfgInstagram').value = cfg.socialInstagram || '';
-      document.getElementById('cfgTiktok').value = cfg.socialTiktok || '';
+      document.getElementById('cfgTiktok').value = cfg.socialTiktok || 'https://www.tiktok.com/@jisralmaliha.2';
+      document.getElementById('cfgYoutube').value = cfg.socialYoutube || 'https://www.youtube.com/@JisrAlMalihaPrefabricatedHouse';
     }
 
     document.getElementById('settingsForm').addEventListener('submit', (e) => {
@@ -1177,7 +1202,8 @@
         address: document.getElementById('cfgAddress').value,
         socialFacebook: document.getElementById('cfgFacebook').value,
         socialInstagram: document.getElementById('cfgInstagram').value,
-        socialTiktok: document.getElementById('cfgTiktok').value
+        socialTiktok: document.getElementById('cfgTiktok').value,
+        socialYoutube: document.getElementById('cfgYoutube').value
       };
 
       localStorage.setItem('jisr_site_config', JSON.stringify(updated));

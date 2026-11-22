@@ -10,14 +10,12 @@ const DEFAULT_CONFIG = {
   whatsapp1Raw: '971545230105',
   whatsapp2: '+971 52 863 4547',
   whatsapp2Raw: '971528634547',
-  email: 'Jisralmaliha@gmail.com',
-  address: 'Maliha Road, Sharjah, UAE',
-  socialFacebook: '',
-  socialInstagram: '',
-  socialTiktok: '',
-  socialLinkedin: '',
-  socialYoutube: '',
-  socialTwitter: '',
+  email: 'jisralmaliha@gmail.com',
+  address: 'Maliha Road, Industrial Area, Sharjah, UAE',
+  socialFacebook: 'https://web.facebook.com/profile.php?id=61596845070868',
+  socialInstagram: 'https://www.instagram.com/jisarlmaliha/',
+  socialTiktok: 'https://www.tiktok.com/@jisralmaliha.2',
+  socialYoutube: 'https://www.youtube.com/@JisrAlMalihaPrefabricatedHouse',
   socialWhatsapp: 'https://wa.me/971545230105'
 };
 
@@ -68,22 +66,6 @@ function applySiteConfig() {
   });
 }
 
-// Lead Management (Saves inquiries locally so Admin Panel can view them)
-function saveLead(lead) {
-  try {
-    const existing = JSON.parse(localStorage.getItem('jisr_leads') || '[]');
-    const newLead = {
-      id: Date.now(),
-      date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dubai' }),
-      ...lead
-    };
-    existing.unshift(newLead);
-    localStorage.setItem('jisr_leads', JSON.stringify(existing));
-  } catch (e) {
-    console.error('Error saving lead:', e);
-  }
-}
-
 // Global Quote Submission
 function submitHeroQuote(event) {
   event.preventDefault();
@@ -92,13 +74,23 @@ function submitHeroQuote(event) {
   const location = document.getElementById('heroLocation')?.value || 'Sharjah / UAE';
   const phone = document.getElementById('heroPhone')?.value || '';
 
-  saveLead({
+  const lead = {
     type: 'Quick Quotation',
     unitType: unit,
     dimensions: size,
     deliveryLocation: location,
     contactNumber: phone
-  });
+  };
+
+  try {
+    const existing = JSON.parse(localStorage.getItem('jisr_leads') || '[]');
+    existing.unshift({
+      id: Date.now(),
+      date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dubai' }),
+      ...lead
+    });
+    localStorage.setItem('jisr_leads', JSON.stringify(existing));
+  } catch (e) {}
 
   const cfg = getSiteConfig();
   const text = 'Hello Jisr Al Maliha Prefabricated Houses,\n\nI would like an instant quotation:\n- Product: ' + unit + '\n- Dimensions: ' + size + '\n- Delivery Emirate: ' + location + '\n- My Phone: ' + phone + '\n\nPlease reply with factory pricing.';
@@ -115,7 +107,7 @@ function submitContactInquiry(event) {
   const size = document.getElementById('cSize')?.value || '';
   const notes = document.getElementById('cNotes')?.value || '';
 
-  saveLead({
+  const lead = {
     type: 'Contact Consultation',
     clientName: name,
     contactNumber: phone,
@@ -123,7 +115,17 @@ function submitContactInquiry(event) {
     unitType: unit,
     dimensions: size,
     notes: notes
-  });
+  };
+
+  try {
+    const existing = JSON.parse(localStorage.getItem('jisr_leads') || '[]');
+    existing.unshift({
+      id: Date.now(),
+      date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dubai' }),
+      ...lead
+    });
+    localStorage.setItem('jisr_leads', JSON.stringify(existing));
+  } catch (e) {}
 
   const cfg = getSiteConfig();
   const text = 'Hello Jisr Al Maliha Engineering Team,\n\nConsultation Request:\n- Name: ' + name + '\n- Phone: ' + phone + '\n- Email: ' + email + '\n- Product: ' + unit + '\n- Preferred Dimensions: ' + size + '\n- Notes: ' + notes;
